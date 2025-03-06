@@ -1,11 +1,19 @@
 import { useState } from "react";
 
 const Login = () => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
   const submitHandler = (e) => {
     e.preventDefault();
     // console.log(e.target);
     console.log("Form Submitted", formData);
+    // clearing formData
+    setFormData({ email: "", password: "" });
+    // setTimeout(() => {
+    //   console.log("Form Cleared", formData);
+    // }, 3000);
   };
 
   const handleChange = (e) => {
@@ -36,7 +44,7 @@ const Login = () => {
             className="flex flex-col items-center justify-center gap-3"
           >
             <input
-              //   value={formData?.email}
+              value={formData?.email}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
               id="email"
@@ -47,7 +55,7 @@ const Login = () => {
               placeholder="email"
             />
             <input
-              //   value={formData?.password}
+              value={formData?.password}
               onChange={handleChange}
               onKeyDown={handleKeyDown}
               required
