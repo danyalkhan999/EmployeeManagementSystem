@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -8,12 +8,10 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     // console.log(e.target);
+    handleLogin(formData.email, formData.password);
     console.log("Form Submitted", formData);
     // clearing formData
     setFormData({ email: "", password: "" });
-    // setTimeout(() => {
-    //   console.log("Form Cleared", formData);
-    // }, 3000);
   };
 
   const handleChange = (e) => {
