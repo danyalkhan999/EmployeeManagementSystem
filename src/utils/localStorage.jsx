@@ -1,5 +1,5 @@
 localStorage.clear();
-const employees = [
+export const employees = [
   {
     id: 1,
     name: "Alice Johnson",
@@ -221,7 +221,7 @@ const employees = [
     },
   },
 ];
-const admin = {
+export const admin = {
   id: 100,
   name: "Admin User",
   email: "admin@example.com",

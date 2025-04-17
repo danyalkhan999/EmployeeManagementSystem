@@ -3,12 +3,17 @@ import Login from "./components/Auth/Login";
 import AdminDashboard from "./components/Dashboard/AdminDashboard";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
 import { AuthContext } from "./context/AuthProvider";
+// import { migrateDataToFirebase } from "./firebase/migrate";
 
 function App() {
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
   const authData = useContext(AuthContext);
   // console.log(authData);
+
+  // useEffect(() => {
+  //   migrateDataToFirebase();
+  // }, []);
 
   useEffect(() => {
     if (authData) {
