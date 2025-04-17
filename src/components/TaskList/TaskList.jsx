@@ -1,88 +1,38 @@
 import React from "react";
+import AcceptTask from "./AcceptTask";
+import NewTask from "./NewTask";
+import CompleteTask from "./CompleteTask";
+import FailedTask from "./FailedTask";
 
-const TaskList = () => {
+const TaskList = ({ tasks }) => {
+  console.log("tasks", tasks);
   return (
     <div
       id="tasklist"
       className="h-[55%] mt-5 overflow-x-auto flex items-center justif-start flex-nowrap gap-5 w-full "
     >
-      <div className="h-full w-[300px] p-5 flex-shrink-0 bg-violet-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Make a youtube video.</h2>
-        <p className="text-sm mt-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          praesentium eos ea vero ipsa facere veritatis temporibus.
-        </p>
-      </div>
-      <div className="h-full w-[300px] p-5 flex-shrink-0 bg-indigo-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Make a youtube video.</h2>
-        <p className="text-sm mt-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          praesentium eos ea vero ipsa facere veritatis temporibus.
-        </p>
-      </div>
-      <div className="h-full w-[300px] p-5 flex-shrink-0 bg-blue-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Make a youtube video.</h2>
-        <p className="text-sm mt-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          praesentium eos ea vero ipsa facere veritatis temporibus.
-        </p>
-      </div>
-      <div className="h-full w-[300px] p-5 flex-shrink-0 bg-green-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Make a youtube video.</h2>
-        <p className="text-sm mt-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          praesentium eos ea vero ipsa facere veritatis temporibus.
-        </p>
-      </div>
-      <div className="h-full w-[300px] p-5 flex-shrink-0 bg-yellow-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Make a youtube video.</h2>
-        <p className="text-sm mt-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          praesentium eos ea vero ipsa facere veritatis temporibus.
-        </p>
-      </div>
-      <div className="h-full w-[300px] p-5 flex-shrink-0 bg-orange-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Make a youtube video.</h2>
-        <p className="text-sm mt-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          praesentium eos ea vero ipsa facere veritatis temporibus.
-        </p>
-      </div>
-      <div className="h-full w-[300px] p-5 flex-shrink-0 bg-red-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-2xl font-semibold">Make a youtube video.</h2>
-        <p className="text-sm mt-5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          praesentium eos ea vero ipsa facere veritatis temporibus.
-        </p>
-      </div>
+      {tasks.map((el, index) => {
+        if (el.active) {
+          console.log("task info active task", el);
+          return <AcceptTask key={index} data={el} />;
+        }
+        if (el.newTask) {
+          console.log("task info new Task", el);
+          return <NewTask key={index} data={el} />;
+        }
+        if (el.completed) {
+          console.log("task info complted task", el);
+          return <CompleteTask key={index} data={el} />;
+        }
+        if (el.failed) {
+          console.log("task info failed", el);
+          return <FailedTask key={index} data={el} />;
+        }
+      })}
+      {/* <AcceptTask />
+      <NewTask />
+      <CompleteTask />
+      <FailedTask /> */}
     </div>
   );
 };

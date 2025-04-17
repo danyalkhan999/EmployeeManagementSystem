@@ -1,3 +1,4 @@
+localStorage.clear();
 const employees = [
   {
     id: 1,
@@ -6,7 +7,7 @@ const employees = [
     password: "123",
     tasks: [
       {
-        tasktaskTitle: "Complete Project Report",
+        taskTitle: "Complete Project Report",
         taskDescription: "Prepare and submit the final project report.",
         taskCategory: "Work",
         date: "2025-04-05",
@@ -36,6 +37,12 @@ const employees = [
         failed: false,
       },
     ],
+    taskCount: {
+      newTask: 1,
+      completedTask: 1,
+      failedTask: 0,
+      activeTask: 2,
+    },
   },
   {
     id: 2,
@@ -74,6 +81,12 @@ const employees = [
         failed: true,
       },
     ],
+    taskCount: {
+      newTask: 1,
+      completedTask: 1,
+      failedTask: 1,
+      activeTask: 1,
+    },
   },
   {
     id: 3,
@@ -112,6 +125,12 @@ const employees = [
         failed: false,
       },
     ],
+    taskCount: {
+      newTask: 2,
+      completedTask: 1,
+      failedTask: 0,
+      activeTask: 2,
+    },
   },
   {
     id: 4,
@@ -150,6 +169,12 @@ const employees = [
         failed: false,
       },
     ],
+    taskCount: {
+      newTask: 1,
+      completedTask: 1,
+      failedTask: 0,
+      activeTask: 1,
+    },
   },
   {
     id: 5,
@@ -188,9 +213,14 @@ const employees = [
         failed: false,
       },
     ],
+    taskCount: {
+      newTask: 1,
+      completedTask: 1,
+      failedTask: 0,
+      activeTask: 2,
+    },
   },
 ];
-
 const admin = {
   id: 100,
   name: "Admin User",
